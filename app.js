@@ -201,7 +201,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/userDB')
             if(err){
                 console.log(err);
             }else{
-                passport.authenticate('local')(req,res,()=>{
+                passport.authenticate('local',{failureRedirect:'/login'})(req,res,()=>{
                     res.redirect('/secrets');
                 })
             }
